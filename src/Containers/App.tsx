@@ -2,6 +2,11 @@ import * as React from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider, Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import { BrowserRouter, Route } from 'react-router-dom'
+
+import {
+    Search
+} from './index'
 
 const client = new ApolloClient({
     uri: "https://api.github.com/graphql",
@@ -28,7 +33,7 @@ const q = gql`
 
 export default () => (
     <ApolloProvider client={client} >
-        <h1>Github!</h1>
+        {/* <h1>Github!</h1>
         <Query query={q} >
         {
             ({ data, loading }) => {
@@ -45,6 +50,11 @@ export default () => (
                 )
             }
         }
-        </Query>
+        </Query> */}
+        <BrowserRouter>
+            <React.Fragment>
+                <Route component={Search} path="/search" />
+            </React.Fragment>
+        </BrowserRouter>
     </ApolloProvider>
 )
