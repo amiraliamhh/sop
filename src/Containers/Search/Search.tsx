@@ -1,6 +1,8 @@
 import * as React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import Input from '@material-ui/core/input'
+import Button from '@material-ui/core/Button'
 
 import SearchStyles from './Search.styled'
 import { DocumentNode } from 'graphql';
@@ -49,8 +51,8 @@ class Search extends React.Component<{}, ISearchState> {
         return (
             <SearchStyles>
                 <ul>
-                    <li>Search Repos: <input type="text" value={repoSearchTerm} onChange={this.handleRepoSearchChange} /></li>
-                    <button onClick={this.handleSearch} >Search</button>
+                    <li>Search Repos: <Input type="text" value={repoSearchTerm} onChange={this.handleRepoSearchChange} /></li>
+                    <Button color="primary" variant="contained" onClick={this.handleSearch} >Search</Button>
                 </ul>
                 {
                     <Query query={query} skip={skip} fetchPolicy="network-only" >

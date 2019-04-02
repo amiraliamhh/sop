@@ -4,6 +4,10 @@ import { ApolloProvider, Query } from 'react-apollo'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import {
+    Header
+} from '../Components'
+
+import {
     Search
 } from './index'
 
@@ -20,6 +24,7 @@ const client = new ApolloClient({
 
 export default () => (
     <ApolloProvider client={client} >
+        <Header />
         <BrowserRouter>
             <React.Fragment>
                 <Route component={Search} path="/search" />
