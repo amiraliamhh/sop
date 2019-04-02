@@ -54,8 +54,7 @@ class Search extends React.Component<{}, ISearchState> {
                     <li>Search Repos: <Input type="text" value={repoSearchTerm} onChange={this.handleRepoSearchChange} /></li>
                     <Button color="primary" variant="contained" onClick={this.handleSearch} >Search</Button>
                 </ul>
-                {
-                    <Query query={query} skip={skip} fetchPolicy="network-only" >
+                <Query query={query} skip={skip} fetchPolicy="network-only" >
                     {
                         ({ loading, data, }) => 
                         loading
@@ -76,8 +75,7 @@ class Search extends React.Component<{}, ISearchState> {
                         )
                         : null
                     }
-                    </Query>
-                }
+                </Query>
             </SearchStyles>
         )
     }
